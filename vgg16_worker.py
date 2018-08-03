@@ -21,7 +21,7 @@ class Vgg16Worker(Process):
         #https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
         xnet = vgg16.Vgg16('vgg16_weights_tf_dim_ordering_tf_kernels.h5')
 
-        print 'vggnet init done', self._gpuid
+        print('vggnet init done', self._gpuid)
 
         while True:
             xfile = self._queue.get()
@@ -29,9 +29,9 @@ class Vgg16Worker(Process):
                 self._queue.put(None)
                 break
             label = self.predict(xnet, xfile)
-            print 'woker', self._gpuid, ' xfile ', xfile, " predicted as label", label
+            print('woker', self._gpuid, ' xfile ', xfile, " predicted as label", label)
 
-        print 'vggnet done ', self._gpuid
+        print('vggnet done ', self._gpuid)
 
     def predict(self, xnet, imgfile):
         #BGR
