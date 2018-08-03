@@ -33,7 +33,7 @@ class Scheduler:
         # wait all fo workers finish
         for worker in self._workers:
             worker.join()
-        print "all of workers have been done"
+        print("all of workers have been done")
 
                 
 
@@ -60,8 +60,8 @@ if __name__ == "__main__":
 
     gpuids = [int(x) for x in args.gpuids.strip().split(',')]
 
-    print args.imgpath
-    print gpuids
+    print(args.imgpath)
+    print(gpuids)
 
     run(args.imgpath, gpuids)
     
